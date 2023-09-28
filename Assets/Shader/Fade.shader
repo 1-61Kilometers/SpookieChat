@@ -4,7 +4,7 @@
     {
         _MainTex ("Texture", 2D) = "white" {}
 	_TintColor("Tint Color", Color) = (1,1,1,1)
-	_Transparency("Transparency", Range(0,0,0,5)) = 0.25
+	_Transparency("Transparency", Range(0.0,0.5)) = 0.25
 	_CutoutThresh("Cutout Threshold", Range(0.0,1.0)) = 0.2
         _GlitchAmount ("Glitch Amount", Range(0, 1)) = 0.1
         _GlitchFrequency ("Glitch Frequency", Range(1, 10)) = 5
