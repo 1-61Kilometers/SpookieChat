@@ -6,13 +6,20 @@
 	_TintColor("Tint Color", Color) = (1,1,1,1)
 	_Transparency("Transparency", Range(0.0,0.5)) = 0.25
 	_CutoutThresh("Cutout Threshold", Range(0.0,1.0)) = 0.2
+	_Distance("Distance", Float) = 1
+	_Amplitude("Amplitude", Float) = 1
+	_Speed ("Speed", Float) = 1
+	_Amount("Amount", Range(0.0,1.0)) = 1
         _GlitchAmount ("Glitch Amount", Range(0, 1)) = 0.1
         _GlitchFrequency ("Glitch Frequency", Range(1, 10)) = 5
     }
     SubShader
     {
-        Tags { "RenderType"="transparent" }
+        Tags {"Queue"="Transparent" "RenderType"="transparent" }
         LOD 100
+
+	ZWrite off
+	Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
