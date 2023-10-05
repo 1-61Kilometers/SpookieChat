@@ -69,7 +69,7 @@ MonoBehaviour:
         stringValue: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|none
     - fullName: Variable_UnityEngineGameObject
       uid: a105e4d1-f56e-4d0a-bd94-955594101a98
-      position: {x: 0, y: 0}
+      position: {x: -181.60338, y: -601.46576}
       nodeUIDs:
       - 
       - 
