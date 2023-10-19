@@ -13,14 +13,22 @@ namespace UdonSharp.Examples.Utilities
     public class InteractToggle : UdonSharpBehaviour 
     {
         [Tooltip("List of objects to toggle on and off")]
-        public GameObject[] toggleObjects;
+        public GameObject[] toggleOffObjects;
+        public GameObject[] toggleOnObjects;
+        
 
         public override void Interact()
         {
-            foreach (GameObject toggleObject in toggleObjects)
+            foreach (GameObject toggleObject in toggleOffObjects)
             {
                 if (toggleObject != null) {
                     toggleObject.SetActive(!toggleObject.activeSelf);
+                }
+            }
+            foreach (GameObject toggleObject in toggleOnObjects)
+            {
+                if (toggleObject != null) {
+                    toggleObject.SetActive(true);
                 }
             }
         }
