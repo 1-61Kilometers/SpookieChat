@@ -10,22 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
-  m_Name: Hair_Mirror
+  m_Name: Plane Udon Graph Program Asset
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: d1cfa21a36e5b6849bf1ede3d79e27a8,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: db666093213118841ae777c8dfd891af,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    \r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n\r\n.code_end\r\n"
   assemblyError: 
   graphData:
     name: 
     description: 
-    nodes:
-    - fullName: Event_OnPlayerTriggerEnter
-      uid: 61c64d74-83ad-4e39-be1a-e533af130aa6
-      position: {x: 386.33328, y: -55.221035}
-      nodeUIDs: []
-      flowUIDs: []
-      nodeValues: []
+    nodes: []
     updateOrder: 0
   graphElementData: []
   version: 1.0.0
