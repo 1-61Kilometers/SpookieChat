@@ -12,25 +12,16 @@ namespace UdonSharp.Examples.Utilities
     [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
     public class InteractToggle : UdonSharpBehaviour 
     {
+        public PlaneResize plane;
         [Tooltip("List of objects to toggle on and off")]
-        public GameObject[] toggleOffObjects;
-        public GameObject[] toggleOnObjects;
-        
+        public GameObject toggleOffObjects;
+        public GameObject toggleOnObjects;
 
         public override void Interact()
         {
-            foreach (GameObject toggleObject in toggleOffObjects)
-            {
-                if (toggleObject != null) {
-                    toggleObject.SetActive(!toggleObject.activeSelf);
-                }
-            }
-            foreach (GameObject toggleObject in toggleOnObjects)
-            {
-                if (toggleObject != null) {
-                    toggleObject.SetActive(true);
-                }
-            }
+            plane.StartMoving();
+            toggleOffObjects.SetActive(false);
+            toggleOnObjects.SetActive(true);
         }
     }
 }
