@@ -16,10 +16,16 @@ namespace UdonSharp.Examples.Utilities
         [Tooltip("List of objects to toggle on and off")]
         public GameObject toggleOffObjects;
         public GameObject toggleOnObjects;
-
+        public GameObject Mirror;
+        public GameObject Video;
+        
         public override void Interact()
         {
             //plane.StartMoving();
+            if(this.name == "SalonChair"){
+                Mirror.SetActive(false);
+                Video.SetActive(true);
+            }
             toggleOffObjects.SetActive(false);
             toggleOnObjects.SetActive(true);
         }
