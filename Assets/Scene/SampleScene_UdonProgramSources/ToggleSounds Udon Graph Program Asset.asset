@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
-  m_Name: 1st_Door Udon Graph Program Asset
+  m_Name: ToggleSounds Udon Graph Program Asset
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 157f8e4c0837cc4488d4733b663f8bce,
     type: 2}
