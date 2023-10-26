@@ -1,6 +1,8 @@
-
+using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
+using VRC.SDKBase;
+using VRC.Udon;
 
 namespace UdonSharp.Examples.Utilities
 {
@@ -18,9 +20,13 @@ namespace UdonSharp.Examples.Utilities
         public GameObject toggleOnObjects;
         public GameObject Mirror;
         public GameObject Video;
-        
+        public Transform target;
+
         public override void Interact()
         {
+            if(target != null){
+                Networking.LocalPlayer.TeleportTo(target.position, target.rotation);
+            }
             //plane.StartMoving();
             if(this.name == "SalonChair"){
                 Mirror.SetActive(false);

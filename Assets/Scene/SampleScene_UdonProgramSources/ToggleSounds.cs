@@ -18,7 +18,7 @@ public class ToggleSounds : UdonSharpBehaviour
         audioSource.volume = 0;  // Assume the audio source starts silent.
     }
 
-    public override void OnPlayerTriggerEnter(VRCPlayerApi player)
+    public override void OnPlayerTriggerStay(VRCPlayerApi player)
     {
         if (player.IsValid())
         {
