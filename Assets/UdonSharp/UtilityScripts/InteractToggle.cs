@@ -36,8 +36,9 @@ namespace UdonSharp.Examples.Utilities
                 Video.SetActive(true);
             }
             if(toggleOffObjects != null && toggleOnObjects != null){
-                toggleOffObjects.SetActive(false);
                 toggleOnObjects.SetActive(true);
+                toggleOffObjects.SetActive(false);
+                
             }
         }
     }
