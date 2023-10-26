@@ -6,10 +6,17 @@ using VRC.Udon;
 public class ToggleSounds : UdonSharpBehaviour
 {
     public AudioSource audioSource;
-    public float fadeDuration = 2.0f; // Duration for fade out in seconds
+    public float fadeDuration = 2.0f;
 
     private bool isFadingOut = false;
+    private bool isFadingIn = false;
     private float startVolume;
+
+    private void Start()
+    {
+        startVolume = audioSource.volume;
+        audioSource.volume = 0;  // Assume the audio source starts silent.
+    }
 
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {
@@ -17,7 +24,7 @@ public class ToggleSounds : UdonSharpBehaviour
         {
             if (player.isLocal)
             {
-                audioSource.Play();
+                StartFadeIn();
             }
         }
     }
@@ -36,9 +43,19 @@ public class ToggleSounds : UdonSharpBehaviour
 
             if (audioSource.volume <= 0)
             {
-                audioSource.Pause();  // Pause the audio when volume reaches zero
-                audioSource.volume = startVolume; // Reset volume for next time
+                audioSource.Pause();  
+                audioSource.volume = 0;
                 isFadingOut = false;
+            }
+        }
+        else if (isFadingIn)
+        {
+            audioSource.volume += startVolume * Time.deltaTime / fadeDuration;
+
+            if (audioSource.volume >= startVolume)
+            {
+                audioSource.volume = startVolume;
+                isFadingIn = false;
             }
         }
     }
@@ -48,7 +65,17 @@ public class ToggleSounds : UdonSharpBehaviour
         if (!isFadingOut)
         {
             isFadingOut = true;
-            startVolume = audioSource.volume;
+            isFadingIn = false; // Stop fading in if it was occurring
+        }
+    }
+
+    private void StartFadeIn()
+    {
+        if (!isFadingIn)
+        {
+            audioSource.UnPause();  // Ensure the audio starts playing if it was paused
+            isFadingIn = true;
+            isFadingOut = false;  // Stop fading out if it was occurring
         }
     }
 }
