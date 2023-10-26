@@ -21,19 +21,24 @@ namespace UdonSharp.Examples.Utilities
         public GameObject Mirror;
         public GameObject Video;
         public Transform target;
-
+        public PlaneResize plane;
         public override void Interact()
         {
             if(target != null){
                 Networking.LocalPlayer.TeleportTo(target.position, target.rotation);
+            }
+            if(plane != null){
+                plane.StartMoving();
             }
             //plane.StartMoving();
             if(this.name == "SalonChair"){
                 Mirror.SetActive(false);
                 Video.SetActive(true);
             }
-            toggleOffObjects.SetActive(false);
-            toggleOnObjects.SetActive(true);
+            if(toggleOffObjects != null && toggleOnObjects != null){
+                toggleOffObjects.SetActive(false);
+                toggleOnObjects.SetActive(true);
+            }
         }
     }
 }
