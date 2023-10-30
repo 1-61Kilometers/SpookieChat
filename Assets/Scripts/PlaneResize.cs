@@ -6,14 +6,16 @@ using VRC.Udon;
 
 public class PlaneResize : UdonSharpBehaviour
 {
+    public float Height = 2f;
     public bool start = false;
     public float speed = 0.01f;  // Adjust this value to control the speed of the movement
     private Vector3 startPosition;
     private float t = 0;
+    
 
     void Start()
     {
-        startPosition = transform.position;
+        startPosition = transform.localPosition;
     }
 
     void Update()
@@ -21,19 +23,17 @@ public class PlaneResize : UdonSharpBehaviour
         if (start)
         {
             t += speed * Time.deltaTime;  // Increment t
-            transform.position = Vector3.Lerp(startPosition, new Vector3(2.39f, 2, -65.03f), t);  // Move the platform
+            transform.localPosition = Vector3.Lerp(startPosition, new Vector3(startPosition.x, Height, startPosition.z), t);  // Move the platform
 
             if (t >= 1)  // When t reaches 1, the platform has reached the target position
             {
                 start = false;
-                this.transform.localScale = new Vector3(25f, 25f, 25f);
-                t = 0;  // Reset t for future movements
             }
         }
     }
     public void StartMoving()
     {
-        startPosition = transform.position;
+        startPosition = transform.localPosition;
         start = true;
     }
 
